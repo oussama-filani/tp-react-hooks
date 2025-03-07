@@ -134,17 +134,20 @@ L'objectif était d'implémenter un système de gestion de langue avec React Con
 ---
 
 ### Exercice 3 : Hooks Personnalisés
-#### Objectif : Créer des hooks réutilisables
 
-- [ ] 3.1 Créer le hook useDebounce
-- [ ] 3.2 Créer le hook useLocalStorage
-- [ ] 3.3 Documenter votre solution ici
+L'objectif de cet exercice était de créer des hooks réutilisables pour améliorer la modularité et la maintenabilité du code.
 
-_Votre réponse pour l'exercice 3 :_
-```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
-```
+---
+
+#### **3.1 Création des Hook `useDebounce` et `useLocalStorage` **
+
+#### **Captures d'Écran**
+
+1. **useDebounce :**
+   ![useDebounce Hook](./public/assets/useDebounce.png)
+
+2. **useLocalStorage :**
+   ![useLocalStorage Hook](./public/assets/useLocalStorage.png)
 
 ### Exercice 4 : Gestion Asynchrone et Pagination
 #### Objectif : Gérer le chargement et la pagination
