@@ -1,5 +1,5 @@
 // src/App.js
-import React, { createContext, useState } from 'react';
+import React, { useState, createContext } from 'react';
 import ProductList from './components/ProductList';
 import ProductSearch from './components/ProductSearch';
 import ThemeToggle from './components/ThemeToggle';
@@ -10,6 +10,7 @@ export const ThemeContext = createContext();
 
 const App = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   return (
     <LanguageProvider>
@@ -23,8 +24,8 @@ const App = () => {
             </div>
           </header>
           <main>
-            <ProductSearch />
-            <ProductList />
+            <ProductSearch onSearch={setSearchTerm} />
+            <ProductList searchTerm={searchTerm} />
           </main>
         </div>
       </ThemeContext.Provider>

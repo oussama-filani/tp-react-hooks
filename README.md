@@ -139,7 +139,7 @@ L'objectif de cet exercice était de créer des hooks réutilisables pour améli
 
 ---
 
-#### **3.1 Création des Hook `useDebounce` et `useLocalStorage` **
+#### **3.1 Création des Hook `useDebounce` et `useLocalStorage`**
 
 #### **Captures d'Écran**
 
@@ -150,17 +150,52 @@ L'objectif de cet exercice était de créer des hooks réutilisables pour améli
    ![useLocalStorage Hook](./public/assets/useLocalStorage.png)
 
 ### Exercice 4 : Gestion Asynchrone et Pagination
-#### Objectif : Gérer le chargement et la pagination
 
-- [ ] 4.1 Ajouter le bouton de rechargement
-- [ ] 4.2 Implémenter la pagination
-- [ ] 4.3 Documenter votre solution ici
+L'objectif de cet exercice était d'implémenter une pagination et un bouton de rechargement pour gérer efficacement le chargement des produits.
 
-_Votre réponse pour l'exercice 4 :_
-```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
-```
+---
+
+#### **4.1 Ajout du Bouton de Rechargement**
+
+**Objectif :**
+- Permettre à l'utilisateur de recharger manuellement la liste des produits.
+
+**Implémentation :**
+- Un bouton "Recharger les produits" a été ajouté dans le composant `ProductList`.
+- Ce bouton déclenche une nouvelle requête pour récupérer les produits.
+
+**Fonctionnement :**
+- Lorsque l'utilisateur clique sur le bouton, la fonction `reloadProducts` est appelée, ce qui relance la requête API pour récupérer les produits.
+
+---
+
+#### **4.2 Implémentation de la Pagination**
+
+**Objectif :**
+- Diviser la liste des produits en plusieurs pages pour améliorer les performances et l'expérience utilisateur.
+
+**Implémentation :**
+- Le hook `useProductSearch` a été modifié pour accepter les paramètres `page` et `pageSize`.
+- Les paramètres `limit` et `skip` sont utilisés pour récupérer uniquement les produits nécessaires pour la page actuelle.
+- Des contrôles de pagination ont été ajoutés pour naviguer entre les pages.
+
+**Fonctionnement :**
+- Le nombre total de produits est récupéré pour calculer le nombre total de pages.
+- Les boutons "Précédent" et "Suivant" permettent de naviguer entre les pages.
+
+
+#### **Captures d'Écran**
+
+1. **Bouton de Rechargement :**
+   ![Bouton de Rechargement](./public/assets/Bouton_de_Rechargement.png)
+
+2. **Pagination :**
+   ![Pagination](./public/assets/Pagination.png)
+
+3. **Liste des Produits :**
+   ![Liste des Produits](./public/assets/Liste_des_Produits.png)
+
+---
 
 ## Rendu
 
