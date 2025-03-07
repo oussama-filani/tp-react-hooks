@@ -1,15 +1,12 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { ThemeContext } from '../App';
-import useDebounce from '../hooks/useDebounce';
+import { LanguageContext } from '../contexts/LanguageContext';
+import { translations } from './../translations.js';
 
 const ProductSearch = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const { isDarkTheme } = useContext(ThemeContext);
-  const debouncedSearchTerm = useDebounce(searchTerm, 500); // 500ms delay
-
-  useEffect(() => {
-    onSearch(debouncedSearchTerm); // Pass debounced term to parent
-  }, [debouncedSearchTerm, onSearch]);
+  const { language } = useContext(LanguageContext);
 
   return (
     <div className="mb-4">
@@ -17,7 +14,7 @@ const ProductSearch = ({ onSearch }) => {
         type="text"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Rechercher un produit..."
+        placeholder={translations[language].searchPlaceholder}
         className={`form-control ${isDarkTheme ? 'bg-dark text-light' : ''}`}
       />
     </div>

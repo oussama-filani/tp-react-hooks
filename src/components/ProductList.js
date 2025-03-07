@@ -1,22 +1,25 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../App';
 import useProductSearch from '../hooks/useProductSearch';
+import { LanguageContext } from '../contexts/LanguageContext';
+import { translations } from '../translations.js';
 
 const ProductList = ({ searchTerm }) => {
   const { isDarkTheme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
   const { products, loading, error } = useProductSearch(searchTerm);
 
   if (loading) return (
     <div className="text-center my-4">
       <div className="spinner-border" role="status">
-        <span className="visually-hidden">Chargement...</span>
+        <span className="visually-hidden">{translations[language].loading}</span>
       </div>
     </div>
   );
 
   if (error) return (
     <div className="alert alert-danger" role="alert">
-      Erreur: {error}
+      {translations[language].error} {error}
     </div>
   );
 
@@ -38,7 +41,7 @@ const ProductList = ({ searchTerm }) => {
                 <h5 className="card-title">{product.title}</h5>
                 <p className="card-text">{product.description}</p>
                 <p className="card-text">
-                  <strong>Prix: </strong>
+                  <strong>{translations[language].price} </strong>
                   {product.price}€
                 </p>
               </div>

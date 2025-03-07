@@ -44,7 +44,7 @@ Pour chaque exercice :
    - Les difficultés rencontrées et comment vous les avez résolues
 5. Commitez vos changements avec un message descriptif
 
-### Explication de la Solution pour l'Exercice 1 : Recherche en Temps Réel avec Debounce
+### Exercice 1 : Recherche en Temps Réel avec Debounce
 
 L'objectif de cet exercice était d'implémenter une recherche en temps réel dans l'application, tout en utilisant la technique du **debounce** pour optimiser les performances et éviter de surcharger l'API avec des requêtes inutiles.
 
@@ -91,18 +91,47 @@ L'objectif de cet exercice était d'implémenter une recherche en temps réel da
 
 ---
 
-### Exercice 2 : Context et Internationalisation
-#### Objectif : Gérer les préférences de langue
+### Exercice 2 : Gestion des Préférences de Langue
 
-- [ ] 2.1 Créer le LanguageContext
-- [ ] 2.2 Ajouter le sélecteur de langue
-- [ ] 2.3 Documenter votre solution ici
+L'objectif était d'implémenter un système de gestion de langue avec React Context.
 
-_Votre réponse pour l'exercice 2 :_
-```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
-```
+---
+
+#### **Étapes de la Solution**
+
+1. **Création du `LanguageContext` :**
+   - Un contexte pour stocker la langue actuelle et la fonction de mise à jour.
+
+2. **Ajout du Sélecteur de Langue :**
+   - Un composant `LanguageSelector` permet de choisir entre français et anglais.
+
+3. **Utilisation du Contexte :**
+   - Les composants utilisent la langue sélectionnée pour afficher les textes traduits.
+
+---
+
+#### **Fonctionnement**
+
+1. **Sélecteur de Langue :**
+   - L'utilisateur choisit une langue, et le contexte est mis à jour.
+
+2. **Affichage des Textes :**
+   - Les textes sont dynamiquement traduits en fonction de la langue sélectionnée.
+
+---
+
+#### **Captures d'Écran**
+
+1. **Sélecteur de Langue :**
+   ![Sélecteur de Langue](./public/assets/Selecteur_de_Langue.png)
+
+2. **Application en Français :**
+   ![Application en Français](./public/assets/Application_FR.png)
+
+3. **Application en Anglais :**
+   ![Application en Anglais](./public/assets/Application_EN.png)
+
+---
 
 ### Exercice 3 : Hooks Personnalisés
 #### Objectif : Créer des hooks réutilisables
