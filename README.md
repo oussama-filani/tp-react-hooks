@@ -44,18 +44,52 @@ Pour chaque exercice :
    - Les difficultés rencontrées et comment vous les avez résolues
 5. Commitez vos changements avec un message descriptif
 
-### Exercice 1 : État et Effets 
-#### Objectif : Implémenter une recherche en temps réel
+### Explication de la Solution pour l'Exercice 1 : Recherche en Temps Réel avec Debounce
 
-- [ ] 1.1 Modifier le composant ProductSearch pour utiliser la recherche
-- [ ] 1.2 Implémenter le debounce sur la recherche
-- [ ] 1.3 Documenter votre solution ici
+L'objectif de cet exercice était d'implémenter une recherche en temps réel dans l'application, tout en utilisant la technique du **debounce** pour optimiser les performances et éviter de surcharger l'API avec des requêtes inutiles.
 
-_Votre réponse pour l'exercice 1 :_
-```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
-```
+---
+
+#### **Étapes de la Solution**
+
+1. **Création du Hook `useDebounce` :**
+   - Un hook personnalisé `useDebounce` a été créé pour retarder la mise à jour du terme de recherche. Cela permet de ne déclencher la recherche que lorsque l'utilisateur a arrêté de taper pendant 500ms.
+
+2. **Modification du Composant `ProductSearch` :**
+   - Le composant `ProductSearch` utilise maintenant le hook `useDebounce` pour obtenir une version debouncée du terme de recherche. Ce terme est ensuite envoyé au parent (`App`) pour filtrer les produits.
+
+3. **Modification du Hook `useProductSearch` :**
+   - Le hook `useProductSearch` a été modifié pour accepter un terme de recherche et filtrer les produits en conséquence. Une nouvelle requête est envoyée à l'API chaque fois que le terme de recherche change.
+
+4. **Intégration dans `App` :**
+   - Le composant `App` gère maintenant l'état du terme de recherche et le passe à `ProductList` via une prop. `ProductSearch` reçoit une fonction `onSearch` pour mettre à jour ce terme.
+
+---
+
+#### **Fonctionnement de la Solution**
+
+1. **Avant la Recherche :**
+   - Tous les produits sont affichés lorsque l'application est chargée.
+   - Le champ de recherche est vide.
+
+2. **Pendant la Recherche :**
+   - Lorsque l'utilisateur commence à taper, le terme de recherche est debouncé.
+   - Aucune requête n'est envoyée tant que l'utilisateur n'a pas arrêté de taper pendant 500ms.
+
+3. **Après la Recherche :**
+   - Une fois le délai de debounce écoulé, une requête est envoyée à l'API pour récupérer les produits correspondants.
+
+---
+
+#### **Captures d'Écran**
+1. **Avant la Recherche :**
+   ![Avant la Recherche](./public/assets/searchProduct_before.png)
+
+
+2. **Après la Recherche :**
+   ![Après la Recherche](./public/assets/searchProduct_after.png)
+
+---
 
 ### Exercice 2 : Context et Internationalisation
 #### Objectif : Gérer les préférences de langue
